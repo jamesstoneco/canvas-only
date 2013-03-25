@@ -9,3 +9,4 @@ Below are links to all of the libraries included here:
 * [Box2dWeb](https://code.google.com/p/box2dweb/)
 * [Zebra UI](http://www.zebkit.com/)
 * [Toxiclibs.js](https://github.com/hapticdata/toxiclibsjs/)
+* [Hammer.js](http://eightmedia.github.com/hammer.js/) - for multitouch interactions

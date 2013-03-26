@@ -1,36 +1,36 @@
-function sketchProc(processing) {
-	  // Override draw function, by default it will be called 60 times per second
-	  processing.draw = function() {
-	    // determine center and max clock arm length
-	    var centerX = processing.width / 2, centerY = processing.height / 2;
-	    var maxArmLength = Math.min(centerX, centerY);
-	
-	    function drawArm(position, lengthScale, weight) {
-	      processing.strokeWeight(weight);
-	      processing.line(centerX, centerY,
-	        centerX + Math.sin(position * 2 * Math.PI) * lengthScale * maxArmLength,
-	        centerY - Math.cos(position * 2 * Math.PI) * lengthScale * maxArmLength);
-	    }
-	
-	    // erase background
-	    new Processing.background(224);
-	
-	    var now = new Date();
-	
-	    // Moving hours arm by small increments
-	    var hoursPosition = (now.getHours() % 12 + now.getMinutes() / 60) / 12;
-	    drawArm(hoursPosition, 0.5, 5);
-	
-	    // Moving minutes arm by small increments
-	    var minutesPosition = (now.getMinutes() + now.getSeconds() / 60) / 60;
-	    drawArm(minutesPosition, 0.80, 3);
-	
-	    // Moving hour arm by second increments
-	    var secondsPosition = now.getSeconds() / 60;
-	    drawArm(secondsPosition, 0.90, 1);
-	  };
+(function() {
+	var canvas = document.getElementById('glibcanvas');
+	var p5 = new Processing(canvas);
+
+	// let's write a sketch
+	var value = 0;
+	// Definition for the initial entry point
+	p5.setup = function() {
+	  p5.size(200,200);
+	  // we want to turn off animation, because this is a demo page and it
+	  // would use cpu while not being looked at. Only draw on mousemoves
+	  p5.noLoop();
 	}
-	
-var canvas = document.getElementById("canvas1");
-// attaching the sketchProc function to the canvas
-var processingInstance = new Processing(canvas, sketchProc);
+
+	// Draw a "sine wave" using two bezier curves, with an undulating amplitude.
+	p5.draw = function() {
+	  // partially clear, by overlaying a semi-transparent rect
+	  // with background color
+	  p5.noStroke();
+	  p5.fill(255,75);
+	  p5.rect(0,0,200,200);
+	  // draw the "sine wave"
+	  p5.stroke(100,100,200);
+	  p5.noFill();
+	  p5.bezier(0,100, 33,100+value, 66,100+value, 100,100);
+	  p5.bezier(100,100, 133,100+-value, 166,100+-value, 200,100);
+	}
+
+	p5.mouseMoved = function() {
+	  value = ( p5.mouseY-100);
+	  p5.redraw();
+	}
+
+  // Finally, calling setup() will kickstart the sketch
+  p5.setup();
+}());

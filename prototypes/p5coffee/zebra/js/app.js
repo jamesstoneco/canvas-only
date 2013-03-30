@@ -3,14 +3,23 @@
   var coffee_draw;
 
   coffee_draw = function(p5) {
+    var backgroundUI;
+
+    backgroundUI = function(bgColor, xOff, yOff) {
+      window.context.fillStyle = bgColor;
+      return window.context.fillRect(xOff, yOff, p5.width, p5.height);
+    };
     p5.setup = function() {
-      return p5.size($(window).width(), $(window).height());
+      p5.size($(window).width(), $(window).height());
+      return p5.rectMode(p5.CENTER);
     };
     return p5.draw = function() {
       var size;
 
-      p5.rectMode(p5.CENTER);
+      backgroundUI("#eee", 0, 60);
       size = 200 + p5.sin(p5.frameCount / 100) * 100;
+      p5.noStroke();
+      p5.fill(127, 127);
       return p5.rect(p5.width / 2, p5.height / 2, size, size);
     };
   };
@@ -20,49 +29,58 @@
 
 
   zebra.ready(function() {
-    var root;
-
     eval(zebra.Import("ui", "layout"));
-    root = (new zCanvas("p5canvas")).root;
-    root.properties({
+    return window.root = (new zCanvas("p5canvas")).root.properties({
       layout: new BorderLayout(8, 8),
-      border: new Border(),
-      padding: 8,
+      background: "#eee",
       kids: {
-        TOP: new Button("Top").properties({
-          canHaveFocus: false
-        }),
-        LEFT: new Button("Left").properties({
-          canHaveFocus: false
-        }),
-        RIGHT: new Button("Right").properties({
-          canHaveFocus: false
-        }),
-        BOTTOM: new Button("bottom").properties({
-          canHaveFocus: false
+        TOP: new Panel({
+          layout: new FlowLayout(CENTER, TOP, HORIZONTAL, 10),
+          padding: 10,
+          background: "#eee",
+          kids: {
+            "test1": new Button(),
+            "test2": new Button("test"),
+            "test3": new Button("test"),
+            "test4": new Button("test"),
+            "test5": new Button("test"),
+            "test6": new Button("test")
+          }
         })
       }
     });
-    return root.find("//Button")._.add(function() {
-      return root.find("//TextField").setValue("");
-    });
   });
+
+  /*
+    create interactions for button presses
+    create slider
+    have data update slide
+  */
+
+
+  /*
+  # alternative style from js
+    root.setLayout(newBorderLayout(4,4))
+    root.setPadding(4)
+    p = new Button("Test")
+    # p.setBackground("#00FF00")
+    root.add(BOTTOM, p)
+  */
+
 
   /* do not edit below
   */
 
 
-  /*
-  $(window).resize ->
-    processing.size $(window).width(), $(window).height()
-  */
-
+  $(window).resize(function() {
+    processing.size($(window).width(), $(window).height());
+    return window.root.repaint();
+  });
 
   $(document).ready(function() {
-    var canvas;
-
-    canvas = document.getElementById("p5canvas");
-    return window.processing = new Processing(canvas, coffee_draw);
+    window.canvas = document.getElementById("p5canvas");
+    window.processing = new Processing(canvas, coffee_draw);
+    return window.context = canvas.getContext('2d');
   });
 
 }).call(this);

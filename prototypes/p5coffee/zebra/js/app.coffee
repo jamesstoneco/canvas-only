@@ -35,7 +35,7 @@ zebra.ready ->
             id: "test2"
           "slider": new Slider()
           "check": new Checkbox("valueCheck")
-    myButton = window.root.find("//Button")
+#    myButton = window.root.find("//Button")
 
 ###
   create interactions for button presses

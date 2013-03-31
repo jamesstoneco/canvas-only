@@ -29,8 +29,6 @@
 
 
   zebra.ready(function() {
-    var myButton;
-
     eval(zebra.Import("ui", "layout"));
     return window.root = (new zCanvas("p5canvas")).root.properties({
       layout: new BorderLayout(8, 8),
@@ -53,7 +51,7 @@
           }
         })
       }
-    }, myButton = window.root.find("//Button"));
+    });
   });
 
   /*

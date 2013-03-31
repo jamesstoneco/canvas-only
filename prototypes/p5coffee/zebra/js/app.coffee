@@ -28,12 +28,14 @@ zebra.ready ->
         padding: 10
         background: "#eee"
         kids:
-          "test1" : new Button()
-          "test2" : new Button("test")
-          "test3" : new Button("test")
-          "test4" : new Button("test")
-          "test5" : new Button("test")
-          "test6" : new Button("test")
+          "test1" : new Button().properties
+            canHaveFocus: false
+          "test2" : new Button("test 2").properties
+            canHaveFocus: false
+            id: "test2"
+          "slider": new Slider()
+          "check": new Checkbox("valueCheck")
+    myButton = window.root.find("//Button")
 
 ###
   create interactions for button presses

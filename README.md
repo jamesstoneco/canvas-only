@@ -2,6 +2,10 @@
 
 Source and examples to accompany my talk, "Canvas Only: Creative Coding with HTML5" at the HTML5 Dev Conf 2013 in SF
 
+Slides are avaialbe at [http://www.scribd.com/doc/133913357/Canvas-Only-Creative-Coding-with-HTML-5-presented-at-the-HTML5-Developers-Conference-2013](http://www.scribd.com/doc/133913357/Canvas-Only-Creative-Coding-with-HTML-5-presented-at-the-HTML5-Developers-Conference-2013).
+
+NOTE: I have set the copyright because I am using some royalty free symbols that I purchased from the noun project. You are welcome to share/remix/etc, with the exception of slides #5+7. Contact me directly if you have any questions.
+
 ## summary ##
 
 Are you interested in creating cool games or interactions for web or mobile? Are you new to graphics programming and want to jump in and experiment. For many years artists and technologists have created amazing installations such as ""Flight Patterns"" by Aaron Koblin by using Processing (both a pre-processed language and api that sits on top of Java). Today the power and simplicity in syntax has been ported to the HTML5 Canvas in Processing.js.

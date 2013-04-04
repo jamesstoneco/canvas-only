@@ -2,7 +2,7 @@
 
 Source and examples to accompany my talk, "Canvas Only: Creative Coding with HTML5" at the HTML5 Dev Conf 2013 in SF
 
-Slides are avaialbe at [http://www.scribd.com/doc/133913357/Canvas-Only-Creative-Coding-with-HTML-5-presented-at-the-HTML5-Developers-Conference-2013](http://www.scribd.com/doc/133913357/Canvas-Only-Creative-Coding-with-HTML-5-presented-at-the-HTML5-Developers-Conference-2013).
+Slides are available at [http://www.scribd.com/doc/133913357/Canvas-Only-Creative-Coding-with-HTML-5-presented-at-the-HTML5-Developers-Conference-2013](http://www.scribd.com/doc/133913357/Canvas-Only-Creative-Coding-with-HTML-5-presented-at-the-HTML5-Developers-Conference-2013).
 
 NOTE: I have set the copyright because I am using some royalty free symbols that I purchased from the noun project. You are welcome to share/remix/etc, with the exception of slides #5+7. Contact me directly if you have any questions.
 
